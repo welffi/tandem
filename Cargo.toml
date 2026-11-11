@@ -1,0 +1,33 @@
+[package]
+name = "tandem"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ab_glyph = "0.2"
+cpal = "0.16"
+eframe = { version = "0.37.0", default-features = false, features = ["glow", "default_fonts", "accesskit"] }
+image = { version = "0.25.10", default-features = false, features = ["png", "jpeg"] }
+rayon = "1.10"
+rfd = "0.17.2"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+sha1 = "0.11.0"
+ureq = "3.5.1"
+windows-sys = { version = "0.61.2", features = [
+    "Win32_Foundation",
+    "Win32_Security",
+    "Win32_System_Registry",
+    "Win32_System_Threading",
+    "Win32_UI_Shell",
+    "Win32_UI_WindowsAndMessaging",
+] }
+
+[profile.release]
+opt-level = 3
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
